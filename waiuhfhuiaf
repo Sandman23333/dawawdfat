@@ -1,0 +1,12 @@
+local weaponStats = require(game.Workspace.ServerStuff.Statistics["W_STATISTICS"])
+
+
+        for i, child in weaponStats do
+            if child then
+                if child.weapontype == "Gun" then
+                    if child.animset then
+                        child.animset = weaponStats.AJM.animset
+                    end
+                end
+            end
+        end
