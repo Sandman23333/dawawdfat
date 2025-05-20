@@ -1,0 +1,35 @@
+local rep = game:GetService("ReplicatedStorage")
+
+
+local model = rep:FindFirstChild("UpperStatic")
+
+if not model then
+print("creating")
+local assetId = 126240759183789
+local text = game:GetObjects("rbxassetid://" .. assetId)[1]
+text.Parent = rep
+end
+
+wait(5)
+
+local queen = game.Workspace.activeHostiles:FindFirstChild("AI_QUEEN")
+
+local model2 = queen:FindFirstChild("UpperStatic")
+
+if not model2 then
+print("inserting")
+local model = rep:WaitForChild("UpperStatic")
+
+local modelcl = model:Clone()
+modelcl.Parent = queen
+modelcl.PrimaryPart.CFrame = queen.Torso.CFrame
+modelcl.Middle.WeldConstraint.Part1 = queen.Torso
+
+modelcl.UpperL.color5.Color = queen["Right Arm"].Color
+modelcl.UpperR.color5.Color = queen["Right Arm"].Color
+end
+
+
+
+queen:FindFirstChild("Shirt"):Destroy()
+queen:FindFirstChild("Pants"):Destroy()
