@@ -539,7 +539,7 @@ local ms = lp:GetMouse()
 local key = game:GetService("UserInputService")
 
 key.InputBegan:Connect(function(input, gameProcessed)
-	if not gameProcessed and input.KeyCode == Enum.KeyCode.G then
+	if not gameProcessed and input.KeyCode == Enum.KeyCode.V then
 
     local shotshell = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.animationSets.TPanimSets.global["perk_shotshell"])
      shotshell:Play()
@@ -640,7 +640,7 @@ end)
 
 Rayfield:Notify({
    Title = "Controls",
-   Content = "G to trigger. No cooldown whatsoever, so have fun.",
+   Content = "V to trigger. No cooldown whatsoever, so have fun.",
    Duration = 6.5,
    Image = 4483362458,
 })
