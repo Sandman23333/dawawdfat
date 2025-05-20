@@ -530,6 +530,122 @@ local Button3 = Tab3:CreateButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/meetmeattheatp/Scripts/refs/heads/main/SC",true))()
    end,
 })
+local Button3 = Tab3:CreateButton({
+   Name = "Infinite LongShot",
+   Callback = function()
+local lp = game.Players.LocalPlayer
+local ms = lp:GetMouse()
+
+local key = game:GetService("UserInputService")
+
+key.InputBegan:Connect(function(input, gameProcessed)
+	if not gameProcessed and input.KeyCode == Enum.KeyCode.G then
+
+    local shotshell = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.animationSets.TPanimSets.global["perk_shotshell"])
+     shotshell:Play()
+              local shotshellarms2 = game.workspace.CurrentCamera.FPArms.AC:LoadAnimation(game.ReplicatedStorage.animationSets.global["perk_shotgun"])
+     shotshellarms2:Play()
+     local args = {
+    [1] = {
+        [1] = "perks"
+    },
+    [2] = "shotshell_windup",
+    [3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("playAudio"):FireServer(unpack(args))
+
+local args = {
+    [1] = {
+        [1] = "perks"
+    },
+    [2] = "shotshell_punch_ding",
+    [3] = game:GetService("Players").LocalPlayer.Character.Head
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("playAudio"):FireServer(unpack(args))
+task.wait(0.1)
+         local shotshellarms = game.workspace.CurrentCamera.FPArms.AC:LoadAnimation(game.ReplicatedStorage.animationSets.global["perk_shotgun_punch"])
+     shotshellarms:Play()
+
+
+
+task.wait(0.3)
+
+local args = {
+    [1] = {
+        [1] = "perks"
+    },
+    [2] = "shotshell_fire",
+    [3] = game:GetService("Players").LocalPlayer.Character.Head
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("playAudio"):FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = {
+        [1] = "perks"
+    },
+    [2] = "shotshell_punch_hit",
+    [3] = game:GetService("Players").LocalPlayer.Character.Head
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("playAudio"):FireServer(unpack(args))
+local args = {
+    [1] = "firegun",
+    [2] = workspace:WaitForChild("activePlayers"):WaitForChild("DrEvelynReese"),
+    [3] = game:GetService("Players").LocalPlayer,
+    [4] = {
+        [1] = game:GetService("Players").LocalPlayer.Character["Left Arm"].Position,
+        [2] = game:GetService("Players").LocalPlayer.Character["Left Arm"].Position,
+        [6] = 100
+    }
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("applyGore"):FireServer(unpack(args))
+local args = {
+    [1] = "shotshell_blast",
+    [2] = workspace:WaitForChild("activePlayers"):WaitForChild("DrEvelynReese"),
+    [3] = game:GetService("Players").LocalPlayer,
+    [4] = {
+        [1] = ms.hit.Position,
+        [2] = game:GetService("Players").LocalPlayer.Character["Left Arm"].Position
+    }
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("applyGore"):FireServer(unpack(args))
+
+local args = {
+    [1] = "shotshell",
+    [2] = {
+        [1] = ms.hit.Position,
+        [2] = ms.hit.Position
+    }
+}
+workspace:WaitForChild("ServerStuff"):WaitForChild("dealDamage"):FireServer(unpack(args))
+task.wait(0.3)
+local args = {
+    [1] = {
+        [1] = "perks"
+    },
+    [2] = "shotshell_pump",
+    [3] = game:GetService("Players").LocalPlayer.Character.Head
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("playAudio"):FireServer(unpack(args))
+
+
+	end
+end)
+
+Rayfield:Notify({
+   Title = "Controls",
+   Content = "G to trigger. No cooldown whatsoever, so have fun.",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+   end,
+})
 local Section335234324 = Tab3:CreateSection("Movement")
 local Button44444 = Tab3:CreateButton({
    Name = "Dash",
