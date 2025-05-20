@@ -94,7 +94,7 @@ if aisFolder then
     for _, npc in pairs(aisFolder:GetChildren()) do
         local humanoidRootPart = npc:FindFirstChild("HumanoidRootPart")
         if humanoidRootPart then
-        for i = 1,10 do
+        for i = 1,1 do
 local args = {
     [1] = "TKnife",
     [2] = 50,
@@ -324,7 +324,13 @@ workspace.ServerStuff.applyGore:FireServer("hangerPopup", game.Players.LocalPlay
 workspace.ServerStuff.applyGore:FireServer("hangerPopup", game.Players.LocalPlayer.Character.PrimaryPart, nil)
          end,
 })
-
+local Sectionclientside = Tab1:CreateSection("Client-Sided")
+local Buttonsledgequeenlookingkindanakeed = Tab1:CreateButton({
+   Name = "Naked SledgeQueen",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Sandman23333/dawawdfat/refs/heads/main/435wfsdg",true))()
+         end,
+})
 
 local Tab2 = Window:CreateTab("Perks", 6961018885)
 local Section1 = Tab2:CreateSection("NOTE: High UNC executor with the ability to require modulescripts is REQUIRED.")
@@ -511,7 +517,7 @@ perks.scavmod = perkscavmod
 
 
 local Tab3 = Window:CreateTab("Abilities", 4370346582)
-local Section335234 = Tab3:CreateSection("NOTE: Most movesets use Arbiter.")
+local Section335234 = Tab3:CreateSection("Arbiter")
 local Button2 = Tab3:CreateButton({
    Name = "Sledge Queen",
    Callback = function()
@@ -524,6 +530,7 @@ local Button3 = Tab3:CreateButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/meetmeattheatp/Scripts/refs/heads/main/SC",true))()
    end,
 })
+local Section335234324 = Tab3:CreateSection("Movement")
 local Button44444 = Tab3:CreateButton({
    Name = "Dash",
    Callback = function()
