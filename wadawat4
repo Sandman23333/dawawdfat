@@ -593,7 +593,7 @@ local args = {
 workspace:WaitForChild("ServerStuff"):WaitForChild("playAudio"):FireServer(unpack(args))
 local args = {
     [1] = "firegun",
-    [2] = workspace:WaitForChild("activePlayers"):WaitForChild("DrEvelynReese"),
+    [2] = workspace:WaitForChild("activePlayers"):WaitForChild(game:GetService("Players").LocalPlayer.Name),
     [3] = game:GetService("Players").LocalPlayer,
     [4] = {
         [1] = game:GetService("Players").LocalPlayer.Character["Left Arm"].Position,
@@ -605,7 +605,7 @@ local args = {
 workspace:WaitForChild("ServerStuff"):WaitForChild("applyGore"):FireServer(unpack(args))
 local args = {
     [1] = "shotshell_blast",
-    [2] = workspace:WaitForChild("activePlayers"):WaitForChild("DrEvelynReese"),
+    [2] = workspace:WaitForChild("activePlayers"):WaitForChild(game:GetService("Players").LocalPlayer.Name),
     [3] = game:GetService("Players").LocalPlayer,
     [4] = {
         [1] = ms.hit.Position,
@@ -707,7 +707,6 @@ Rayfield:Notify({
 })
    end,
 })
-
 
 local Tab4 = Window:CreateTab("Player Configuration", 4431163567)
 local SectionKWKASKDN = Tab4:CreateSection("Movement")
