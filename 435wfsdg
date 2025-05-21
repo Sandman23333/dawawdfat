@@ -19,6 +19,24 @@ local torso = game:GetObjects("rbxassetid://" .. assetId2)[1]
 torso.Parent = rep
 end
 
+local modelahh = rep:FindFirstChild("LowerStatic")
+
+if not modelahh then
+print("creating ahh")
+local assetId3 = 110899889350185
+local ahh = game:GetObjects("rbxassetid://" .. assetId3)[1]
+ahh.Parent = rep
+end
+
+local modellegs = rep:FindFirstChild("Legs")
+
+if not modellegs then
+print("creating thighs")
+local assetId4 = 74294443771185
+local legs = game:GetObjects("rbxassetid://" .. assetId4)[1]
+legs.Parent = rep
+end
+
 wait(5)
 
 local queen = game.Workspace.activeHostiles:FindFirstChild("AI_QUEEN")
@@ -53,6 +71,40 @@ modelcltors.WeldConstraint.Part1 = queen:FindFirstChild("Torso")
 modelcltors.Color = queen["Right Arm"].Color
 
 queen:FindFirstChild("Torso").Transparency = 1
+end
+print(2)
+local model4 = queen:FindFirstChild("LowerStatic")
+
+if not model4 then
+print("inserting")
+local lowerstaticmod = rep:FindFirstChild("LowerStatic")
+
+local lowerstatic = lowerstaticmod:Clone()
+
+lowerstatic.Parent = queen
+lowerstatic.PrimaryPart.CFrame = queen:FindFirstChild("Torso").CFrame
+lowerstatic.Middle.WeldConstraint.Part1 = queen:FindFirstChild("Torso")
+lowerstatic.LowerL.color5.Color = queen:FindFirstChild("Right Arm").Color
+lowerstatic.LowerR.color5.Color = queen:FindFirstChild("Right Arm").Color
+end
+print(3)
+local model5 = queen:FindFirstChild("Legs")
+
+if not model5 then
+print("inserting")
+local legsmodels = rep:FindFirstChild("Legs")
+
+local limbs = legsmodels:Clone()
+
+limbs.Parent = queen
+limbs.BodyLeftLeg.PrimaryPart.CFrame = queen:FindFirstChild("Left Leg").CFrame
+limbs.BodyRightLeg.PrimaryPart.CFrame = queen:FindFirstChild("Right Leg").CFrame
+
+limbs.BodyLeftLeg.NewLeftLeg.WeldConstraint.Part1 = queen:FindFirstChild("Left Leg")
+limbs.BodyRightLeg.NewRightLeg.WeldConstraint.Part1 = queen:FindFirstChild("Right Leg")
+
+queen:FindFirstChild("Left Leg").Transparency = 1
+queen:FindFirstChild("Right Leg").Transparency = 1
 end
 
 
