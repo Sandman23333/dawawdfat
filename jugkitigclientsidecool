@@ -1,0 +1,131 @@
+local db = false
+
+local UserInputService = game:GetService("UserInputService")
+
+            local rep = game:GetService("ReplicatedStorage")
+			local lp = game.Players.LocalPlayer
+local ms = lp:GetMouse()
+local key = game:GetService("UserInputService")
+
+local model = rep:FindFirstChild("LSMini")
+
+if not model then
+print("creating")
+local assetId = 70861448241684
+local text = game:GetObjects("rbxassetid://" .. assetId)[1]
+text.Parent = rep
+end
+
+toggleState = false
+
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if not gameProcessed and not db and input.KeyCode == Enum.KeyCode.Y then
+        toggleState = not toggleState
+        if toggleState then
+		
+
+
+toggleState = true
+
+db = true
+
+local model2 =  game.workspace.CurrentCamera:FindFirstChild("LSMini")
+
+if not model2 then
+print("creating")
+text2 = rep.LSMini:Clone()
+text2.Parent = game.workspace.CurrentCamera
+text2.ADS.Anchored = false
+text2.JointGrip.Anchored = false
+text2.muzzle.Anchored = false
+local weld = Instance.new("WeldConstraint", text2)
+weld.Part1 = text2.JointGrip
+text2.JointGrip.CFrame = game.workspace.CurrentCamera.FPArms.LeftArm.LUpperArm.CFrame * CFrame.Angles(math.rad(90), math.rad(10), math.rad(-90)) * CFrame.new(0, -1.3, 0)
+weld.Part0 = game.workspace.CurrentCamera.FPArms.LeftArm.LUpperArm
+end
+
+
+
+
+     minigun2 = game.workspace.CurrentCamera.FPArms.AC:LoadAnimation(game.ReplicatedStorage.animationSets.global["perk_minigun"])
+     minigun2:Play()
+     local args = {
+    [1] = {
+        [1] = "perks"
+    },
+    [2] = "mini_ready",
+    [3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("playAudio"):FireServer(unpack(args))
+task.wait(0.3)
+spawn(function()
+while toggleState do
+     local args = {
+    [1] = {
+        [1] = "perks"
+    },
+    [2] = "mini_loop",
+    [3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("playAudio"):FireServer(unpack(args))
+wait(2)
+end
+end)
+wait(0.3)
+minigun2:AdjustSpeed(0)
+wait(3)
+db = false
+        else
+		db = true
+		toggleState = false
+            print("Goodbye, world!")
+			minigun2:AdjustSpeed(1)
+game.workspace.CurrentCamera:FindFirstChild("LSMini"):Destroy()
+wait(3)
+db = false
+        end
+    end
+end)
+
+shooting = false
+
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.UserInputType == Enum.UserInputType.MouseButton3 then -- Middle Click
+	if toggleState == true then
+	shooting = true
+        while shooting do
+            local args = {
+    [1] = "firelaser",
+    [2] = workspace:WaitForChild("activePlayers"):WaitForChild(lp.Name),
+    [3] = game:GetService("Players").LocalPlayer,
+    [4] = {
+        [1] = text2.muzzle.Position,
+        [2] = ms.hit.Position
+    }
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("applyGore"):FireServer(unpack(args))
+local args = {
+    [1] = "shotshell",
+    [2] = {
+        [1] = ms.hit.Position
+    }
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("dealDamage"):FireServer(unpack(args))
+
+            task.wait(0.05)
+        end
+    end
+	end
+end)
+
+UserInputService.InputEnded:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.UserInputType == Enum.UserInputType.MouseButton3 then
+        shooting = false
+    end
+end)
