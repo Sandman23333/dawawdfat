@@ -49,6 +49,7 @@ local modelcltors = modeltors:Clone()
 modelcltors.Parent = queen
 modelcltors.CFrame = queen:FindFirstChild("Torso").CFrame
 modelcltors.WeldConstraint.Part1 = queen:FindFirstChild("Torso")
+modelcltors.Color = queen["Right Arm"].Color
 
 queen:FindFirstChild("Torso").Transparency = 1
 end
