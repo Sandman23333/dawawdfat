@@ -38,7 +38,7 @@ modelcl.UpperL.color5.Color = queen["Right Arm"].Color
 modelcl.UpperR.color5.Color = queen["Right Arm"].Color
 end
 
-local model3 = queen:FindFirstChild("UpperStatic")
+local model3 = queen:FindFirstChild("color5")
 
 if not model3 then
 print("inserting")
