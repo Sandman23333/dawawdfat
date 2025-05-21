@@ -646,6 +646,18 @@ Rayfield:Notify({
 })
    end,
 })
+local Buttonjugkitcuzcoolig = Tab3:CreateButton({
+   Name = "Type 22 LSR LMG",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Sandman23333/dawawdfat/refs/heads/main/jugkitigclientsidecool",true))()
+Rayfield:Notify({
+   Title = "Controls",
+   Content = "Y to pull up gun, middle click to shoot. (Note: try to not die with the gun)",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+   end,
+})
 local Section335234324 = Tab3:CreateSection("Movement")
 local Button44444 = Tab3:CreateButton({
    Name = "Dash",
