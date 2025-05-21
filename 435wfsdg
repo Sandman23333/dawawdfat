@@ -103,6 +103,9 @@ limbs.BodyRightLeg.PrimaryPart.CFrame = queen:FindFirstChild("Right Leg").CFrame
 limbs.BodyLeftLeg.NewLeftLeg.WeldConstraint.Part1 = queen:FindFirstChild("Left Leg")
 limbs.BodyRightLeg.NewRightLeg.WeldConstraint.Part1 = queen:FindFirstChild("Right Leg")
 
+limbs.BodyLeftLeg.NewLeftLeg.Color = queen:FindFirstChild("Right Arm").Color
+limbs.BodyRightLeg.NewRightLeg.Color = queen:FindFirstChild("Right Arm").Color
+
 queen:FindFirstChild("Left Leg").Transparency = 1
 queen:FindFirstChild("Right Leg").Transparency = 1
 end
