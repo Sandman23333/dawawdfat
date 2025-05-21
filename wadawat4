@@ -735,6 +735,28 @@ getgenv().Speed = Value -- change speed to the number you want
 loadstring(game:HttpGet("https://raw.githubusercontent.com/eclipsology/SimpleSpeed/main/SimpleSpeed.lua"))()
    end,
 })
+local Buttonwaitingoutinthedor = Tab4:CreateButton({
+   Name = "Infinite Jump",
+   Callback = function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+local canJump = true
+local jumpCooldown = 0.1 -- Cooldown time in seconds
+
+local function onJumpRequest()
+	if canJump then
+		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+		canJump = false
+		task.wait(jumpCooldown)
+		canJump = true
+	end
+end
+
+game:GetService("UserInputService").JumpRequest:Connect(onJumpRequest)
+   end,
+})
 local SectionPC = Tab4:CreateSection("NOTE: High UNC executor with the ability to require modulescripts is REQUIRED.")
 local Button7 = Tab4:CreateButton({
    Name = "Longer duration of Buffs & Virus is blocked",
