@@ -27,7 +27,7 @@ local model2 = queen:FindFirstChild("color5")
 
 if not model2 then
 print("inserting")
-local model = rep:WaitForChild("UpperStatic")
+local model = rep:FindFirstChild("UpperStatic")
 
 local modelcl = model:Clone()
 modelcl.Parent = queen
@@ -38,11 +38,12 @@ modelcl.UpperL.color5.Color = queen["Right Arm"].Color
 modelcl.UpperR.color5.Color = queen["Right Arm"].Color
 end
 
+print(1)
 local model3 = queen:FindFirstChild("color5")
 
 if not model3 then
 print("inserting")
-local modeltors = rep:WaitForChild("color5")
+local modeltors = rep:FindFirstChild("color5")
 
 local modelcltors = modeltors:Clone()
 
