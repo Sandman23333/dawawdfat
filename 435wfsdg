@@ -4,10 +4,19 @@ local rep = game:GetService("ReplicatedStorage")
 local model = rep:FindFirstChild("UpperStatic")
 
 if not model then
-print("creating")
+print("creating boobies")
 local assetId = 126240759183789
-local text = game:GetObjects("rbxassetid://" .. assetId)[1]
-text.Parent = rep
+local boobies = game:GetObjects("rbxassetid://" .. assetId)[1]
+boobies.Parent = rep
+end
+
+local modeltorso = rep:FindFirstChild("color5")
+
+if not modeltorso then
+print("creating torso")
+local assetId2 = 94914848474755
+local torso = game:GetObjects("rbxassetid://" .. assetId2)[1]
+torso.Parent = rep
 end
 
 wait(5)
@@ -28,6 +37,22 @@ modelcl.Middle.WeldConstraint.Part1 = queen.Torso
 modelcl.UpperL.color5.Color = queen["Right Arm"].Color
 modelcl.UpperR.color5.Color = queen["Right Arm"].Color
 end
+
+local model3 = queen:FindFirstChild("UpperStatic")
+
+if not model3 then
+print("inserting")
+local modeltors = rep:WaitForChild("color5")
+
+local modelcltors = modeltors:Clone()
+
+modelcltors.Parent = queen
+modelcltors.CFrame = queen:FindFirstChild("Torso").CFrame
+modelcltors.WeldConstraint.Part1 = queen:FindFirstChild("Torso")
+
+queen:FindFirstChild("Torso").Transparency = 1
+end
+
 
 
 
