@@ -23,7 +23,7 @@ wait(5)
 
 local queen = game.Workspace.activeHostiles:FindFirstChild("AI_QUEEN")
 
-local model2 = queen:FindFirstChild("UpperStatic")
+local model2 = queen:FindFirstChild("color5")
 
 if not model2 then
 print("inserting")
