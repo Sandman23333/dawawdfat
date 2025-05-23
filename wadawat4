@@ -214,6 +214,27 @@ local Buttonmusicsond = Tab1:CreateButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/meetmeattheatp/Scripts/refs/heads/main/Open%20Source%20Soundboard",true))()
    end,
 })
+local huhhuhh = Tab1:CreateButton({
+   Name = "TP all ammo to you",
+   Callback = function()
+    local players = game:GetService("Players")
+    local localPlayer = players.LocalPlayer
+    local character = localPlayer.Character
+
+    if character then
+        local rootPart = character:FindFirstChild("HumanoidRootPart") -- Change this if needed
+        
+        for _, model in ipairs(workspace.Interactables:GetChildren()) do
+            if model:IsA("Model") and model.Name == "Light Ammo" or model.Name == "Short Ammo" or model.Name == "Heavy Ammo" or model.Name == "Medium Ammo" or model.Name == "Shells Ammo" or model.Name == "Small Ammo" or model.Name == "Long Ammo" then
+                local interactPart = model:FindFirstChild("Interact")
+                if interactPart then
+                    interactPart.CFrame = rootPart.CFrame
+                end
+            end
+        end
+    end
+   end,
+})
 local Sectionidklolll = Tab1:CreateSection("Materials")
 local Slider = Tab1:CreateSlider({
    Name = "Scrap",
@@ -313,6 +334,29 @@ end
 
    end,
 })
+
+local crateespsuggestion = Tab1:CreateButton({
+   Name = "Crate ESP",
+   Callback = function()
+local interactablesFolder = game.Workspace:FindFirstChild("Interactables")
+
+if interactablesFolder then
+    for _, model in ipairs(interactablesFolder:GetChildren()) do
+        if model:IsA("Model") and model.Name == "Crate" then
+            -- Check if the model already has a Highlight instance
+            if not model:FindFirstChildOfClass("Highlight") then
+                local highlight = Instance.new("Highlight")
+                highlight.Parent = model
+            end
+        end
+    end
+else
+    warn("Folder 'Interactables' not found in Workspace.")
+end
+
+   end,
+})
+
 local Buttonhanghangyourself = Tab1:CreateButton({
    Name = "Hanger Thoughts",
    Callback = function()
@@ -324,13 +368,7 @@ workspace.ServerStuff.applyGore:FireServer("hangerPopup", game.Players.LocalPlay
 workspace.ServerStuff.applyGore:FireServer("hangerPopup", game.Players.LocalPlayer.Character.PrimaryPart, nil)
          end,
 })
-local Sectionclientside = Tab1:CreateSection("Client-Sided")
-local Buttonsledgequeenlookingkindanakeed = Tab1:CreateButton({
-   Name = "Naked SledgeQueen",
-   Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Sandman23333/dawawdfat/refs/heads/main/435wfsdg",true))()
-         end,
-})
+
 
 local Tab2 = Window:CreateTab("Perks", 6961018885)
 local Section1 = Tab2:CreateSection("NOTE: High UNC executor with the ability to require modulescripts is REQUIRED.")
@@ -646,18 +684,6 @@ Rayfield:Notify({
 })
    end,
 })
-local Buttonjugkitcuzcoolig = Tab3:CreateButton({
-   Name = "Type 22 LSR LMG",
-   Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Sandman23333/dawawdfat/refs/heads/main/jugkitigclientsidecool",true))()
-Rayfield:Notify({
-   Title = "Controls",
-   Content = "Y to pull up gun, middle click to shoot. (Note: try to not die with the gun)",
-   Duration = 6.5,
-   Image = 4483362458,
-})
-   end,
-})
 local Section335234324 = Tab3:CreateSection("Movement")
 local Button44444 = Tab3:CreateButton({
    Name = "Dash",
@@ -718,6 +744,28 @@ Rayfield:Notify({
    Image = 4483362458,
 })
    end,
+})
+
+local Tabfrfr = Window:CreateTab("Client-Sided", 10802204364)
+local sectionforclient = Tabfrfr:CreateSection("Main")
+local Buttonjugkitcuzcoolig = Tabfrfr:CreateButton({
+   Name = "Type 22 LSR LMG",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Sandman23333/dawawdfat/refs/heads/main/jugkitigclientsidecool",true))()
+Rayfield:Notify({
+   Title = "Controls",
+   Content = "Y to pull up gun, middle click to shoot. (Note: if you want to do damage, use Arbiter)",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+   end,
+})
+local sectionsomethingig = Tabfrfr:CreateSection("Others")
+local Buttonsledgequeenlookingkindanakeed = Tabfrfr:CreateButton({
+   Name = "Naked SledgeQueen",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Sandman23333/dawawdfat/refs/heads/main/435wfsdg",true))()
+         end,
 })
 
 local Tab4 = Window:CreateTab("Player Configuration", 4431163567)
