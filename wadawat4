@@ -1,4 +1,13 @@
+local hook; 
+local ContentProvider = game:GetService('ContentProvider');
 
+hook = hookmetamethod(game, "__namecall", function(self, ...)
+    local method = getnamecallmethod()
+    if tostring(method) == "preloadAsync" then
+       return nil
+    end
+    return hook(self, ...)
+end)
 
 local statusStats = require(workspace.ServerStuff.Statistics.S_STATISTICS)
 
@@ -24,9 +33,9 @@ local perkcurrent = "survival"
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "FISHKING",
+   Name = "Scavenge Fish",
    Icon = 4370335364, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-   LoadingTitle = "FishKing's Script Suite",
+   LoadingTitle = "Derived from ScavHub",
    LoadingSubtitle = "Reborn and remade",
    Theme = "Amethyst", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
@@ -82,6 +91,31 @@ end
     end
 else
     print("Folder not found in Workspace!")
+end
+   end,
+})
+local buttonkillallwithkira = Tab1:CreateButton({
+   Name = "Kill all NPCS《Kira》",
+   Callback = function()
+local aisFolder = game.Workspace:FindFirstChild("activeHostiles") -- Locate the folder
+
+if aisFolder then
+    for _, npc in pairs(aisFolder:GetChildren()) do
+	local hostile = npc
+	for i = 1,10 do
+local args = {
+    [1] = "kirablade",
+    [2] = {
+        [1] = {
+            [1] = hostile
+        },
+        [2] = 75
+    }
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("dealDamage"):FireServer(unpack(args))
+end
+	end
 end
    end,
 })
