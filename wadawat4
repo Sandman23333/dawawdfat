@@ -394,12 +394,18 @@ end
 local Buttonhanghangyourself = Tab1:CreateButton({
    Name = "Hanger Thoughts",
    Callback = function()
-workspace.ServerStuff.applyGore:FireServer("hangerPopup", game.Players.LocalPlayer.Character.PrimaryPart, nil)
-workspace.ServerStuff.applyGore:FireServer("hangerPopup", game.Players.LocalPlayer.Character.PrimaryPart, nil)
-workspace.ServerStuff.applyGore:FireServer("hangerPopup", game.Players.LocalPlayer.Character.PrimaryPart, nil)
-workspace.ServerStuff.applyGore:FireServer("hangerPopup", game.Players.LocalPlayer.Character.PrimaryPart, nil)
-workspace.ServerStuff.applyGore:FireServer("hangerPopup", game.Players.LocalPlayer.Character.PrimaryPart, nil)
-workspace.ServerStuff.applyGore:FireServer("hangerPopup", game.Players.LocalPlayer.Character.PrimaryPart, nil)
+   local playersFolder = game.Workspace:FindFirstChild("activePlayers") -- Locate the folder
+
+if playersFolder then
+    for _, plrs in pairs(playersFolder:GetChildren()) do
+workspace.ServerStuff.applyGore:FireServer("hangerPopup", plrs.PrimaryPart, nil)
+workspace.ServerStuff.applyGore:FireServer("hangerPopup", plrs.PrimaryPart, nil)
+workspace.ServerStuff.applyGore:FireServer("hangerPopup", plrs.PrimaryPart, nil)
+workspace.ServerStuff.applyGore:FireServer("hangerPopup", plrs.PrimaryPart, nil)
+workspace.ServerStuff.applyGore:FireServer("hangerPopup", plrs.PrimaryPart, nil)
+workspace.ServerStuff.applyGore:FireServer("hangerPopup", plrs.PrimaryPart, nil)
+end
+end
          end,
 })
 
@@ -904,6 +910,8 @@ while wait() do
 for i = 1,10 do
 workspace.ServerStuff.dealDamage:FireServer("Regeneration")
 workspace.ServerStuff.dealDamage:FireServer("Regeneration")
+workspace.ServerStuff.dealDamage:FireServer("Regeneration")
+workspace.ServerStuff.dealDamage:FireServer("Regeneration")
 end
 if god == false then
 break
@@ -918,10 +926,5 @@ local Button9 = Tab4:CreateButton({
 for i,v in pairs(getgc(true)) do if type(v) == "table" then if rawget(v,"cooldown") then rawset(v,"cooldown",0) elseif rawget(v,"multicooldown") then rawset(v,"multicooldown",0) end end end
          end,
 })
-
-
-
-
-
 
 
