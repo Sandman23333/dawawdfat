@@ -910,8 +910,6 @@ while wait() do
 for i = 1,10 do
 workspace.ServerStuff.dealDamage:FireServer("Regeneration")
 workspace.ServerStuff.dealDamage:FireServer("Regeneration")
-workspace.ServerStuff.dealDamage:FireServer("Regeneration")
-workspace.ServerStuff.dealDamage:FireServer("Regeneration")
 end
 if god == false then
 break
