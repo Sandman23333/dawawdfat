@@ -1003,6 +1003,8 @@ local ezbrooo = Tab4:CreateButton({
          end,
 })
 
+local Section1 = Tab2:CreateSection("The following perks will be broken upon usage of Inf Perk: Riskrunner, Tickspider, Blitzer, Executioner, and Vagabond ")
+
 local Button9 = Tab4:CreateButton({
    Name = "Infinite Perk use",
    Callback = function()
