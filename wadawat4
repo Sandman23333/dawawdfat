@@ -211,6 +211,80 @@ end
 
    end,
 })
+local buttontocrasheverybodyLOL = Tab1:CreateButton({
+   Name = "Crash Server",
+   Callback = function()
+      local aisFolder = game.Workspace:FindFirstChild("activePlayers") -- Locate the folder
+
+if aisFolder then
+    for _, npc in pairs(aisFolder:GetChildren()) do
+        local humanoidRootPart = npc:FindFirstChild("HumanoidRootPart")
+        if humanoidRootPart then
+        for i = 1,99999999999999999999999 do
+            local args = {
+    [1] = "TKnife",
+    [2] = 50,
+    [3] = humanoidRootPart.CFrame,
+    [4] = 1,
+    [5] = {
+        ["throwrating"] = 3,
+        ["ability"] = "Lightweight and sharp.",
+        ["blacklisted"] = true,
+        ["animset"] = "1HBL",
+        ["desc"] = "Formerly used for a sport where competitors would throw knives at each-other and whoever could catch" ..
+            " it with their palm would win a prize! Now you can re-enact that beautiful sport a" ..
+            "gain with these!",
+        ["weapontype"] = "Item",
+        ["name"] = "Throwing Knife",
+        ["damagerating"] = {
+            [1] = 50,
+            [2] = 50
+        },
+        ["woundrating"] = 1,
+        ["sizerating"] = 4,
+        ["icon"] = "2481852009"
+    },
+    [6] = 1
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("throwWeapon"):FireServer(unpack(args))
+ local args = {
+    [1] = "TGas",
+    [2] = 20,
+    [3] = humanoidRootPart.CFrame,
+    [4] = 1,
+    [5] = {
+        ["throwrating"] = 1,
+        ["ability"] = "Can obscure vision.",
+        ["blacklisted"] = true,
+        ["animset"] = "THRW",
+        ["desc"] = "Used by riot police! Yes, we still have those! We have many hired and stationed on site at all time " ..
+            "and borrowed some of these!",
+        ["weapontype"] = "Item",
+        ["name"] = "Riot Grenade",
+        ["damagerating"] = {
+            [1] = 0,
+            [2] = 0
+        },
+        ["woundrating"] = 2,
+        ["sizerating"] = 4,
+        ["icon"] = "2520535457"
+    },
+    [6] = 1
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("throwWeapon"):FireServer(unpack(args))
+end
+        end
+    end
+else
+    print("Folder not found in Workspace!")
+end
+   end,
+})
+
+
+
 local Button6 = Tab1:CreateButton({
    Name = "Akimbo on all Guns",
    Callback = function()
@@ -248,27 +322,7 @@ local Buttonmusicsond = Tab1:CreateButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/meetmeattheatp/Scripts/refs/heads/main/Open%20Source%20Soundboard",true))()
    end,
 })
-local huhhuhh = Tab1:CreateButton({
-   Name = "TP all ammo to you",
-   Callback = function()
-    local players = game:GetService("Players")
-    local localPlayer = players.LocalPlayer
-    local character = localPlayer.Character
 
-    if character then
-        local rootPart = character:FindFirstChild("HumanoidRootPart") -- Change this if needed
-        
-        for _, model in ipairs(workspace.Interactables:GetChildren()) do
-            if model:IsA("Model") and model.Name == "Light Ammo" or model.Name == "Short Ammo" or model.Name == "Heavy Ammo" or model.Name == "Medium Ammo" or model.Name == "Shells Ammo" or model.Name == "Small Ammo" or model.Name == "Long Ammo" then
-                local interactPart = model:FindFirstChild("Interact")
-                if interactPart then
-                    interactPart.CFrame = rootPart.CFrame
-                end
-            end
-        end
-    end
-   end,
-})
 local Sectionidklolll = Tab1:CreateSection("Materials")
 local Slider = Tab1:CreateSlider({
    Name = "Scrap",
@@ -297,6 +351,27 @@ local Buttonfoodies2 = Tab1:CreateButton({
    Name = "Bottle",
    Callback = function()
 workspace.ServerStuff.dropAmmo:FireServer("rations", "Bottle")
+   end,
+})
+local huhhuhh = Tab1:CreateButton({
+   Name = "TP all ammo to you",
+   Callback = function()
+    local players = game:GetService("Players")
+    local localPlayer = players.LocalPlayer
+    local character = localPlayer.Character
+
+    if character then
+        local rootPart = character:FindFirstChild("HumanoidRootPart") -- Change this if needed
+        
+        for _, model in ipairs(workspace.Interactables:GetChildren()) do
+            if model:IsA("Model") and model.Name == "Light Ammo" or model.Name == "Short Ammo" or model.Name == "Heavy Ammo" or model.Name == "Medium Ammo" or model.Name == "Shells Ammo" or model.Name == "Small Ammo" or model.Name == "Long Ammo" then
+                local interactPart = model:FindFirstChild("Interact")
+                if interactPart then
+                    interactPart.CFrame = rootPart.CFrame
+                end
+            end
+        end
+    end
    end,
 })
 local Sectionwhatsupo = Tab1:CreateSection("Visuals")
@@ -910,12 +985,22 @@ while wait() do
 for i = 1,10 do
 workspace.ServerStuff.dealDamage:FireServer("Regeneration")
 workspace.ServerStuff.dealDamage:FireServer("Regeneration")
+workspace.ServerStuff.dealDamage:FireServer("Regeneration")
+workspace.ServerStuff.dealDamage:FireServer("Regeneration")
 end
 if god == false then
 break
 end
 end
       end,
+})
+
+local ezbrooo = Tab4:CreateButton({
+   Name = "Teamkill",
+   Callback = function()
+                  workspace.ServerStuff.spawnPlayer:FireServer("respawncharacter")
+            game.Players.LocalPlayer.start.Value = ""
+         end,
 })
 
 local Button9 = Tab4:CreateButton({
