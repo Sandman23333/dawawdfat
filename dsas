@@ -1,0 +1,48 @@
+--// Service
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local UserInputService = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+
+--// Variables
+local localPlayer = Players.LocalPlayer
+local distanceMultiplier = 18
+local cooldown = false
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent == true then
+        return
+    end
+
+    if input.KeyCode == Enum.KeyCode.LeftAlt then
+        if cooldown == true then
+            return
+        end
+        cooldown = true
+
+        local animation = localPlayer.Character.Humanoid.Animator:LoadAnimation(ReplicatedStorage.animationSets.TPanimSets.special.dash)
+        local direction = localPlayer.Character.PrimaryPart.CFrame.Position + Vector3.new(0, .5, 0)
+        local bodyPosition = Instance.new("BodyPosition")
+        bodyPosition.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+        bodyPosition.P = 27500
+
+        if UserInputService:IsKeyDown(Enum.KeyCode.W) == true then direction -= localPlayer.Character.PrimaryPart.CFrame.ZVector * distanceMultiplier end
+        if UserInputService:IsKeyDown(Enum.KeyCode.A) == true then direction -= localPlayer.Character.PrimaryPart.CFrame.XVector * distanceMultiplier end
+        if UserInputService:IsKeyDown(Enum.KeyCode.S) == true then direction += localPlayer.Character.PrimaryPart.CFrame.ZVector * distanceMultiplier end
+        if UserInputService:IsKeyDown(Enum.KeyCode.D) == true then direction += localPlayer.Character.PrimaryPart.CFrame.XVector * distanceMultiplier end
+
+        if UserInputService:IsKeyDown(Enum.KeyCode.W) == false and UserInputService:IsKeyDown(Enum.KeyCode.A) == false and UserInputService:IsKeyDown(Enum.KeyCode.S) == false and UserInputService:IsKeyDown(Enum.KeyCode.D) == false then direction += localPlayer.Character.PrimaryPart.CFrame.ZVector * distanceMultiplier end
+
+        workspace.ServerStuff.playAudio:FireServer({"soldiers"}, "dash", localPlayer.Character.PrimaryPart)
+        bodyPosition.Position = direction
+        bodyPosition.Parent = localPlayer.Character.PrimaryPart
+        animation:Play()
+
+        task.delay(.2, function()
+            bodyPosition:Destroy()
+
+            task.delay(.8, function()
+                cooldown = false
+            end)
+        end)
+    end
+end)
