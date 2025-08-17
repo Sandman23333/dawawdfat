@@ -1,0 +1,6 @@
+--// WORK IN PROGRESS, THIS WILL SERVE AS THE HWID WHITELIST DATABASE!
+-// By the way, if you accessed this by HTTPSpy, great job! Go ahead and steal my scripts if you want to.
+
+return {
+
+}
