@@ -1,0 +1,22 @@
+       	   local aisFolder = game.Workspace:FindFirstChild("activeHostiles") -- Locate the folder
+
+if aisFolder then
+    for _, npc in pairs(aisFolder:GetChildren()) do
+	local hostile = npc
+	for i = 1,10 do
+local args = {
+    [1] = "kirablade",
+    [2] = {
+        [1] = {
+            [1] = hostile
+        },
+        [2] = 75
+    }
+}
+workspace:WaitForChild("ServerStuff"):WaitForChild("dealDamage"):FireServer(unpack(args))
+end
+	end
+else
+   print("folder not found: error code 501")
+end
+
