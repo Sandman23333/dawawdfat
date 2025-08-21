@@ -1,0 +1,42 @@
+ local var
+
+for _, child in ipairs(game.workspace.activeHostiles:GetChildren()) do
+    if child:IsA("Model") and child:FindFirstChild("Head") then
+        var = child.Name
+
+for i = 1,10 do
+local args = {
+    [1] = {
+        [1] = "meleedamage",
+        [2] = workspace:WaitForChild("activeHostiles"):WaitForChild(var),
+        [3] = 20,
+        [4] = false,
+        [5] = "Fist",
+        [6] = false,
+        [7] = false,
+        [8] = {},
+        [9] = workspace:WaitForChild("activeHostiles"):WaitForChild(var).Head,
+        [10] = {
+            ["speedrating"] = 2,
+            ["blacklisted"] = true,
+            ["animset"] = "Fists",
+            ["desc"] = "Trusty ol' painless. Great for when you're in a pickle or feel like getting up close and personal.",
+            ["chargerating"] = 2,
+            ["weapontype"] = "Fists",
+            ["name"] = "Fists",
+            ["damagerating"] = {
+                [1] = 6,
+                [2] = 20
+            },
+            ["sizerating"] = 1,
+            ["icon"] = "2195005475",
+            ["ability"] = "Better than nothing."
+        }
+    }
+}
+
+workspace:WaitForChild("ServerStuff"):WaitForChild("dealDamage"):FireServer(unpack(args))
+end
+end
+end
+
