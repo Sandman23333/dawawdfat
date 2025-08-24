@@ -1,7 +1,0 @@
---// WORK IN PROGRESS, THIS WILL SERVE AS THE HWID WHITELIST DATABASE!
---// By the way, if you accessed this by HTTPSpy, great job! Go ahead and steal my scripts if you want to.
-
-return {
-"B6D7ACCC-FF67-483F-B9BD-ABC2AFA6EB37",
-"82701E59-69E0-4F66-8617-95C412C07DCD"
-}
