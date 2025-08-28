@@ -1,0 +1,11 @@
+--// GetPlayer(text): Gets player's username incase if shortened or whatever.
+
+local Players = game:GetService("Players")
+
+local function GetPlayer(text)
+	for _,Player in pairs(Players:GetPlayers()) do
+		if string.sub(string.lower(Player.Name),1,string.len(text)) == string.lower(text) then
+			return Player
+		end
+	end
+end
