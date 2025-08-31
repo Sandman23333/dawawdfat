@@ -1,0 +1,80 @@
+        if Value == true then
+            local character = game.Players.LocalPlayer.Character
+task.spawn(function()
+				(function()
+					local getnearestHostile = function()
+						local grab = character:FindFirstChild("Torso") or character:WaitForChild("HumanoidRootPart")
+						local nearestHostile = nil
+						local shortestDistance = math.huge
+						for _,v in workspace.activeHostiles:GetChildren() do
+							if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+								local distance = (grab.Position - v.HumanoidRootPart.Position).Magnitude
+								if distance < shortestDistance and distance < 20 then
+									shortestDistance = distance
+									nearestHostile = v
+								end
+							end
+						end
+						return nearestHostile
+					end
+
+					local hitNPC = function(NPC)
+						local Model = NPC
+						local Part = Model.Head or Model.Torso
+						local args = {
+							{
+								"meleedamage",
+								Model,
+								12,
+								false,
+								"Fist",
+								false,
+								false,
+								{},
+								Part,
+								{
+									speedrating = 2,
+									blacklisted = true,
+									animset = "Fists",
+									desc = "Trusty ol' painless. Great for when you're in a pickle or feel like getting up close and personal.",
+									chargerating = 2,
+									weapontype = "Fists",
+									name = "Fists",
+									damagerating = {
+										6,
+										20
+									},
+									sizerating = 1,
+									icon = "2195005475",
+									ability = "Better than nothing."
+								}
+							}
+						}
+						workspace:WaitForChild("ServerStuff"):WaitForChild("dealDamage"):FireServer(unpack(args))
+
+					end
+
+					_G.a = false
+
+					local warnMessage = "searching"
+					local startdebug = false
+
+					while task.wait() do
+						if _G.a then
+							break
+						end
+						local nearest = getnearestHostile()
+						if nearest then
+							warnMessage = "found NPC BEGINNING HIT SPINJITSU"
+							hitNPC(nearest)
+						else
+							warnMessage = "searching"
+						end
+						if startdebug then warn(warnMessage) end
+					end
+				end)()
+			end)
+            else
+            			_G.a = true
+			task.delay(0.1, function() _G.a = false end)
+        end
